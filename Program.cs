@@ -1,7 +1,19 @@
-﻿class SimpleDataBase<T>
+class penjumlahan
 {
-    private List<T>storedData;
-    private List<DateTime>inputDates;
+    public static T JumlahTigaAngka<T>(T input1, T input2, T input3)
+    {
+        dynamic a = input1;
+        dynamic b = input2;
+        dynamic c = input3;
+        return a + b + c;
+    }
+
+}
+
+class SimpleDataBase<T>
+{
+    private List<T> storedData;
+    private List<DateTime> inputDates;
 
     public SimpleDataBase()
     {
@@ -17,21 +29,27 @@
 
     public void PrintAllData()
     {
-        for(int i =0;i<storedData.Count;i++)
+        for (int i = 0; i < storedData.Count; i++)
         {
-            Console.WriteLine("Data " + (i+1) + " berisi: " + storedData[i] + ", yang tersimpan pada waktu UTC: " + inputDates[i]);
+            Console.WriteLine("Data " + (i + 1) + " berisi: " + storedData[i] + ", yang tersimpan pada waktu UTC: " + inputDates[i]);
         }
     }
+
 }
 
-class main
-{
-    public static void Main(string[] args)
+
+    class main
     {
-        SimpleDataBase<string> SDB = new SimpleDataBase<string>();
-        SDB.AddNewData("13");
-        SDB.AddNewData("02");
-        SDB.AddNewData("21");
-        SDB.PrintAllData();
+        public static void Main(string[] args)
+        {
+
+            Console.WriteLine(penjumlahan.JumlahTigaAngka<int>(13, 02, 21));
+
+            SimpleDataBase<string> SDB = new SimpleDataBase<string>();
+            SDB.AddNewData("13");
+            SDB.AddNewData("02");
+            SDB.AddNewData("21");
+            SDB.PrintAllData();
+
+        }
     }
-}
